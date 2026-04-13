@@ -1,0 +1,26 @@
+{
+     "name": "cephalorgs-discord-bot",
+     "version": "1.0.0",
+     "description": "A comprehensive Discord bot for CephalORGs",
+     "main": "src/index.js",
+     "scripts": {
+          "start": "node src/index.js",
+          "dev": "nodemon src/index.js"
+     },
+     "dependencies": {
+          "discord.js": "^14.14.1",
+          "dotenv": "^16.3.1",
+          "jimp": "^0.22.10",
+          "openai": "^4.20.1"
+     },
+     "devDependencies": {
+          "nodemon": "^3.0.2"
+     },
+     "keywords": [
+          "discord",
+          "bot",
+          "cephalorgs"
+     ],
+     "author": "Your Name",
+     "license": "MIT"
+}
