@@ -36,6 +36,9 @@ module.exports = {
             console.error('Error registering slash commands:', error);
         }
 
-        client.user.setActivity('CephalORGs Server', { type: 'WATCHING' });
+        client.user.setPresence({
+            activities: [{ name: 'CephalORGs Server', type: 3 }],
+            status: 'dnd',
+        });
     },
 };
