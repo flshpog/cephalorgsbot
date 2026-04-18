@@ -1,4 +1,5 @@
 const { Events } = require('discord.js');
+const { getSticky, resendSticky } = require('../handlers/stickyManager');
 const https = require('https');
 
 // Voice message flag (1 << 13)
@@ -22,6 +23,10 @@ module.exports = {
     name: Events.MessageCreate,
     async execute(message) {
         if (message.author.bot) return;
+
+        if (message.guild && getSticky(message.channel.id)) {
+            resendSticky(message.channel).catch(() => {});
+        }
 
         // Voice message transcription
         if (message.flags.has(VOICE_MESSAGE_FLAG)) {

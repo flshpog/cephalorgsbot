@@ -1,4 +1,5 @@
 const { Events, REST, Routes } = require('discord.js');
+const { startPeriodicCheck } = require('../handlers/stickyManager');
 
 const GUILD_ID = '1423388479806509260';
 
@@ -40,5 +41,7 @@ module.exports = {
             activities: [{ name: 'CephalORGs Server', type: 3 }],
             status: 'dnd',
         });
+
+        startPeriodicCheck(client);
     },
 };
