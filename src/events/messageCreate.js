@@ -1,5 +1,6 @@
 const { Events } = require('discord.js');
 const { getSticky, resendSticky } = require('../handlers/stickyManager');
+const { isVoiceTranscriptionEnabled } = require('../handlers/botSettings');
 const https = require('https');
 
 // Voice message flag (1 << 13)
@@ -30,6 +31,7 @@ module.exports = {
 
         // Voice message transcription
         if (message.flags.has(VOICE_MESSAGE_FLAG)) {
+            if (!isVoiceTranscriptionEnabled()) return;
             const apiKey = process.env.GROQ_API_KEY;
             if (!apiKey) return;
 
